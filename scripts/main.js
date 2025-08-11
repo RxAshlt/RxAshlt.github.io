@@ -10,7 +10,7 @@ myImage.onclick = () => {
   }
   ++cnt;
   console.log(`cnt = ${cnt}`);
-  if (cnt >= 6) myImage.onclick = null;
+  if (cnt >= 2) myImage.onclick = null;
 };
 
 let myButton = document.querySelector("button");
@@ -18,12 +18,12 @@ let myHeading = document.querySelector("h1");
 
 function setUserName() {
   const myName = prompt("Please enter your name.");
-  // if (!myName) {
-  //   setUserName(); // Prompt again if no name is entered
-  // } else {
-  localStorage.setItem("name", myName);
-  myHeading.textContent = `Mozilla is cool, ${myName}`;
-  // }/
+  if (!myName) {
+    setUserName();
+  } else {
+    localStorage.setItem("name", myName);
+    myHeading.textContent = `Mozilla is cool, ${myName}`;
+  }
 }
 
 if (!localStorage.getItem("name")) {
@@ -36,7 +36,3 @@ if (!localStorage.getItem("name")) {
 myButton.onclick = function () {
   setUserName();
 };
-
-console.log(null);
-const k = prompt("输入");
-console.log(`空？${!k}`);
